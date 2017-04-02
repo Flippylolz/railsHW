@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'jquery-rails'
 gem 'mysql2', '~> 0.3.21'
+gem 'pristine', '~> 0.0.3'
 gem 'rails', '3.2.22.5'
 
 # Bundle edge Rails instead:
