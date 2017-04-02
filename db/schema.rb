@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20170330150616) do
+ActiveRecord::Schema.define(:version => 20170402160626) do
 
   create_table "images", :force => true do |t|
     t.string   "url"
@@ -39,5 +39,7 @@ ActiveRecord::Schema.define(:version => 20170330150616) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email"
 
 end

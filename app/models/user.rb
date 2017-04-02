@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
-  attr_accessible :birthday, :email, :first_name, :last_name, :password, :username
+  attr_accessible :birthday, :email, :first_name, :last_name, :password, :username, :id,
+                  :created_at, :updated_at
 
   validates :username, :email, :password, presence: true
   validates :username, :email, uniqueness: true
   validates :password, length: { minimum: 8 }
+  validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 
   has_many :posts
   has_many :images, as: :imageable
@@ -23,8 +25,9 @@ end
 #  last_name  :string(255)
 #  username   :string(255)
 #  password   :string(255)
-#  email      :string(255)
+#  email      :string(255)     index:true
 #  birthday   :datetime
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
 #
+
