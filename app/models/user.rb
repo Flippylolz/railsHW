@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :birthday, :email, :first_name, :last_name, :password, :username, :id,
-                  :created_at, :updated_at
+  attr_accessible :birthday, :email, :first_name, :last_name, :password, :username
 
   validates :username, :email, :password, presence: true
   validates :username, :email, uniqueness: true
