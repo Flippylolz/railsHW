@@ -3,12 +3,13 @@
 <%= form_for @user do |f| %>
     <% if @user.errors.any? %>
         <div class="error_messages">
-          <h2>Form is invalid</h2>
-          <ul>
-            <% for message in @user.errors.full_messages %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
+          <div class="alert alert-danger">
+            <ul>
+              <% for message in @user.errors.full_messages %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         </div>
     <% end %>
     <p>
@@ -32,5 +33,5 @@
     <p>
       <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Password confirmation' %>
     </p>
-    <p class="btn btn-lg btn-primary btn-block"><%= f.submit %></p>
+    <%= f.submit 'Create user' , class: 'btn btn-lg btn-primary btn-block' %>
 <% end %>

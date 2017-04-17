@@ -1,9 +1,6 @@
 class PasswordHashAndSalt < ActiveRecord::Migration
-  def up
+  def change
     add_column :users, :password_hash, :string
     add_column :users, :password_salt, :string
-  end
-
-  def down
   end
 end

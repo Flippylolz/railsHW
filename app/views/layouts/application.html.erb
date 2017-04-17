@@ -5,21 +5,30 @@
   <%= stylesheet_link_tag    'application', :media => 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
-<div id="user_nav">
-  <% if current_user %>
-      Logged in as <%= current_user.email %>.
-      <%= link_to 'Log out', log_out_path %>
-  <% else %>
-      <%= link_to 'Sign up', sign_up_path %> or
-      <%= link_to 'log in', log_in_path %>
-  <% end %>
-</div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-form navbar-right">
+    <div id="user_nav">
+      <% if current_user %>
+          <span style="color:grey"> Logged in as <%= current_user.email %></span>
+          <%= link_to 'Log out', log_out_path %>
+      <% else %>
+          <%= link_to 'Sign up', sign_up_path, class:'btn btn-success' %>
+          <span style="color:grey"> or </span>
+          <%= link_to 'log in', log_in_path, class:'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
+</nav>
 
 <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <div class="alert alert-warning">
+      <strong><%= content_tag :div, msg, id: "flash_#{name}" %></strong>
+    </div>
+    <script> setTimeout("$('.alert').fadeOut('slow')", 3000) </script>
 <% end %>
 
 
