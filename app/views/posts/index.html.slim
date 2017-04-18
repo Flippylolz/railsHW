@@ -1,0 +1,23 @@
+.page-header
+  = link_to new_post_path, class: 'btn btn-primary', id: 'new_post_link', remote: true do
+    span.glyphicon.glyphicon-plus
+    |  New Post
+  h1
+    | Listing posts
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th
+          | Title
+        th
+          | Body
+        th
+          | Author
+        th
+          | Created at
+        th
+          | Actions
+    tbody
+      =render @posts.reverse

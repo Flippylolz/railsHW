@@ -1,0 +1,9 @@
+.container
+  = form_tag sessions_path do
+    h2.form-signin-heading[align="center"]
+      | Log in
+    = email_field_tag :email,'',autofocus: true, class: 'form-control', placeholder: 'E-mail'
+    br
+    = password_field_tag :password, '', autocomplete: 'off', class: 'form-control' , placeholder: 'Password'
+    br
+    = submit_tag 'Log in', class: 'btn btn-lg btn-primary btn-block'

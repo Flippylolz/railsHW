@@ -1,0 +1,9 @@
+let postForm = $('#post_form')
+
+if (postForm.empty()){
+    $('.table-responsive').after('<%= j render 'form' %>');
+}
+else{
+    postForm.replace('<%= j render 'form' %>');
+}
+$('html, body').animate({ scrollTop: $('#post_form').offset().top }, 1000);

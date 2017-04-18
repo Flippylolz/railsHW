@@ -1,0 +1,15 @@
+tr id="post_#{post.id}"
+  td
+    = post.title
+  td
+    = post.body
+  td
+    = post.user.full_name if post.user_id
+  td
+    = post.created_at.strftime('%B %d, %Y')
+  td style='width:20%'
+    .btn-group
+    = link_to 'Show', post, class: 'btn btn-info'
+    - if post.user_id == current_user.id
+      = link_to 'Edit', edit_post_path(post), class: 'btn btn-warning'
+      = link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', remote: true

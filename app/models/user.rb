@@ -2,8 +2,11 @@ class User < ActiveRecord::Base
   attr_accessible :birthday, :email, :first_name, :last_name, :password, :password_confirmation, :username
 
   attr_accessor :password
-  before_save :encrypt_password
 
+  has_many :posts
+  has_many :images, as: :imageable
+
+  scope :adults, -> { where('birthday >= ?', Date.today - 18.years) }
 
   validates_confirmation_of :password
   validates :username, :email, :password, presence: true
@@ -11,10 +14,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 8 }
   validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 
-  has_many :posts
-  has_many :images, as: :imageable
-
-  scope :adults, -> { where('birthday >= ?', Date.today - 18.years) }
+  before_save :encrypt_password
 
   def full_name
     "#{first_name} #{last_name}"
@@ -28,6 +28,8 @@ class User < ActiveRecord::Base
       nil
     end
   end
+
+  private
 
   def encrypt_password
     if password.present?
