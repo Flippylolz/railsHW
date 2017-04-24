@@ -1,9 +1,9 @@
 .page-header
   = link_to posts_path, class: 'btn btn-default' do
     span.glyphicon.glyphicon-list-alt
-    |  Back 
+    |  Back
   h1
-    | New 
+    | New
     | post
 
-= render 'form'
+= render 'form', is_remote: true

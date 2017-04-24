@@ -37,6 +37,7 @@ Image:
 4. Add User instance method: `full_name`
 
 Task 6
+
 ### Overview
 Implement user.rake with namespace `user` and two tasks: `import` and `export`
 
@@ -61,3 +62,23 @@ Each post entry should show Title, Body, Author full name and created_at date in
 If you are the author of post you should see Delete button near it. (Hint use current_user object to detect this)
 Delete also should work with AJAX
 NOTE: also please attach some screenshots with your code changes (slack attachments will be ok)
+
+Task 9
+###Overview
+
+Implement AJAX edit for posts
+
+#####Requirements
+
+If you are the author of post you should also see Edit button near it.
+When you press Edit form should appear instead of appropriate fields (Title should be replaced with text field, Body - with text area, Edit - with Save )
+After changes it should return to original post design but with new data
+Extra task Use WYSIWYG html editor
+Gems
+
+CKEditor https://github.com/galetahub/ckeditor
+Best In Place https://github.com/bernat/best_in_place
+HINTS
+
+RailsCast http://railscasts.com/episodes/302-in-place-editing?view=asciicast
+If you want text inside post to use HTML formatting then use html_safe method. (e.g.post.body.html_safe)

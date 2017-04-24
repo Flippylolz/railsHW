@@ -1,8 +1,8 @@
 tr id="post_#{post.id}"
   td
-    = post.title
+    = best_in_place post, :title
   td
-    = post.body
+    = raw post.body
   td
     = post.user.full_name if post.user_id
   td

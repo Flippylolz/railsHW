@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_filter :check_auth, unless: :current_user
+  before_filter :find_post, only: %i[edit update destroy show]
+
   # GET /posts
   # GET /posts.json
 
@@ -15,7 +17,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.slim
@@ -26,7 +27,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.json
   def new
-    @post = Post.new
+    @post = current_user.posts.new
 
     respond_to do |format|
       format.html # new.html.slim
@@ -36,9 +37,7 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1/edit
-  def edit
-    @post = Post.find(params[:id])
-  end
+  def edit; end
 
   # POST /posts
   # POST /posts.json
@@ -59,7 +58,6 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.json
   def update
-    @post = Post.find(params[:id])
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -75,7 +73,6 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
 
     respond_to do |format|
@@ -87,8 +84,17 @@ class PostsController < ApplicationController
 
   private
 
+  def can_edit?(post)
+    post.user_id == current_user.id || params[:action] == 'show'
+  end
+
+  def find_post
+    @post = Post.find(params[:id])
+    check_auth unless can_edit? @post
+  end
+
   def check_auth
     redirect_to log_in_path
-    flash[:error] = 'You need to log in before creating a post'
+    flash[:error] = 'You need to log in before creating a post or browse them' unless params[:action] == 'update'
   end
 end
