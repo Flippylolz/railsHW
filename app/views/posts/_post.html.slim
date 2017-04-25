@@ -1,13 +1,13 @@
 .panel.panel-info id="post_#{post.id}"
   .panel-heading
     .row
-      .col-xs-3
+      .col-xs-2
         = post.user.full_name
         br
         = post.created_at.strftime('%B %d, %Y')
       .col-xs-8
-        = best_in_place post, :title
-      .col-xs-1
+        h4.text-center.text-capitalize = best_in_place post, :title
+      .col-xs-2.text-right
         .dropdown
           i.fa.fa-ellipsis-h.fa-2x[aria-hidden="true" data-toggle="dropdown"]
           ul.dropdown-menu

@@ -64,11 +64,12 @@ Delete also should work with AJAX
 NOTE: also please attach some screenshots with your code changes (slack attachments will be ok)
 
 Task 9
-###Overview
+
+### Overview
 
 Implement AJAX edit for posts
 
-#####Requirements
+##### Requirements
 
 If you are the author of post you should also see Edit button near it.
 When you press Edit form should appear instead of appropriate fields (Title should be replaced with text field, Body - with text area, Edit - with Save )
@@ -82,3 +83,25 @@ HINTS
 
 RailsCast http://railscasts.com/episodes/302-in-place-editing?view=asciicast
 If you want text inside post to use HTML formatting then use html_safe method. (e.g.post.body.html_safe)
+
+Task 10
+
+### Overview
+
+Implement infinite scroll for your newsfeed (like vk.com newsfeed)
+
+##### Gems
+
+Kaminari https://github.com/kaminari/kaminari
+Will Paginate https://github.com/mislav/will_paginate
+JS plugins https://www.sitepoint.com/jquery-infinite-scrolling-demos/
+
+Task 11
+
+### Overview
+
+Implement sharing to 3 social networks (on your choice) using native dialogs.
+
+##### Gems
+
+Social Share Button https://github.com/huacnlee/social-share-button

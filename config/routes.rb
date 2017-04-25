@@ -4,7 +4,9 @@ RailsHW::Application.routes.draw do
   get 'log_in' => 'sessions#new', as: 'log_in'
   get 'sign_up' => 'users#new', as: 'sign_up'
 
-  resources :posts
+  resources :posts do
+    get 'next_page', on: :collection
+  end
   resources :users, exclude: :new
   resources :sessions, only: :create
 end

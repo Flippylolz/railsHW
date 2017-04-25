@@ -82,6 +82,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def next_page
+    @posts = Post.order('id DESC').page(params[:page]).per_page(10)
+    respond_to do |format|
+      format.js
+    end
+  end
   private
 
   def can_edit?(post)
