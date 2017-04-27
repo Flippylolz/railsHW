@@ -2,16 +2,20 @@ $(document).ready(function() {
   if ($('.pagination').length > 0){
     $('.prev').remove();
     $('.next').remove();
+    var now = new Date().getTime();
     var win = $(window);
     win.scroll(function() {
+
       var hasNextPage = $('.active').next().length,
-          isBottomOfWindow = ($(document).height() - win.height() == win.scrollTop());
-      if (isBottomOfWindow && hasNextPage) {
+          isBottomOfWindow = (win.scrollTop() + win.height()) > $(document).height() - 100,
+          throttler = (new Date().getTime() - now > 1000);
+      if (throttler && isBottomOfWindow && hasNextPage) {
+        now = new Date().getTime();
         var nextPage = parseInt($('.active').text())+1;
         $('div.pagination').hide();
         $('#loader').show();
         $.ajax({
-          url: '/posts/next_page',
+          url: '/posts',
           type: 'get',
           data: {page: nextPage},
           success: function() {
@@ -27,6 +31,5 @@ $(document).ready(function() {
         });
       }
     });
-    }
+  }
 });
-
