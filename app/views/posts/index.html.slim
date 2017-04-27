@@ -4,8 +4,8 @@
     |  New Post
   h1
     | Listing posts
-
-#posts = render @posts
+.panel-group#posts
+  = render @posts
 #loader.text-center
   img[src="assets/cat_loader.gif" alt="Loading..."]
 = will_paginate @posts

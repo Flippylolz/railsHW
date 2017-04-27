@@ -1,2 +1,2 @@
-$('table tbody').prepend('<%= j render partial: 'post', locals: {post: @post} %>')
+$('#posts').prepend('<%= j render partial: 'post', locals: {post: @post} %>')
 $('#post_form').remove();
