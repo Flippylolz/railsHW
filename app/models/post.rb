@@ -6,6 +6,7 @@ class Post < ActiveRecord::Base
   scope :published, -> { where('published_at IS NOT NULL') }
   validates :title, :body, presence: true
 
+  self.per_page = 10
 end
 # == Schema Information
 #
