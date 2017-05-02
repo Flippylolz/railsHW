@@ -13,6 +13,7 @@ group :assets do
   gem 'ckeditor', '4.1.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'sass-rails',   '~> 3.2.3'
+  gem 'social-share-button'
   gem 'will_paginate', '~> 3.1', '>= 3.1.5'
   gem 'uglifier', '>= 1.0.3'
 end

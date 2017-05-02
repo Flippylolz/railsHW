@@ -5,6 +5,6 @@ RailsHW::Application.routes.draw do
   get 'sign_up' => 'users#new', as: 'sign_up'
 
   resources :posts
-  resources :users, exclude: :new
+  resources :users, only: :create
   resources :sessions, only: :create
 end

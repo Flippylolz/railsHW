@@ -1,10 +1,27 @@
+##Installing
+
+Don`t forget to install mySQL2 or mariaDB and  ImageMagick
+```
+sudo apt-get update
+sudo apt-get install mysql-server mysql-client libmysqlclient-dev imagemagick
+```
+Then go for
+```
+bundle install
+rake db:create db:migrate db:seed
+rails s
+```
+
 Task 5
+
 ### Learn
+
 1. Validations - <http://guides.rubyonrails.org/v3.2/active_record_validations_callbacks.html#validation-helpers>
 2. Polymorphic association - <http://guides.rubyonrails.org/v3.2/association_basics.html#polymorphic-associations>
 3. \*If you have free time: STI association - <https://rubydev.ru/2011/07/rdr3t-single-table-inheritance-rails/>
 
 ### Prepare
+
 Create models (tables) to cover next architecture:
 ```
 User:
@@ -24,6 +41,7 @@ Image:
 => url
 ```
 ### Tasks
+
 1. Associations:
  * user has many posts
  * image can be associated with User and Post (polymorphic)
@@ -39,6 +57,7 @@ Image:
 Task 6
 
 ### Overview
+
 Implement user.rake with namespace `user` and two tasks: `import` and `export`
 
 * `Import` task should have path argument and import users from giving CSV file

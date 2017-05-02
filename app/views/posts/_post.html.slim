@@ -5,8 +5,10 @@
         = post.user.full_name
         br
         = post.created_at.strftime('%B %d, %Y')
-      .col-xs-8
-        h4.text-center.text-capitalize = best_in_place post, :title
+      .col-xs-4
+        h4.text-right.text-capitalize = best_in_place post, :title
+      .col-xs-4.text-right
+        = social_share_button_tag(post.title)
       .col-xs-2.text-right
         .dropdown
           i.fa.fa-ellipsis-h.fa-2x[aria-hidden="true" data-toggle="dropdown"]
