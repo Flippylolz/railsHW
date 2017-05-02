@@ -18,6 +18,11 @@
     = f.label :body, class: 'col-sm-2 control-label'
     .col-sm-10
       = f.cktext_area :body, class: 'form-control', required: ''
+  .form-group
+    = f.label :image, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.fields_for :images do |ff|
+        = ff.file_field :url
   - if params[:action] == 'new'
     .form-group
       = f.label :published_at, class: 'col-sm-2 control-label'

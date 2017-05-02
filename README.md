@@ -1,9 +1,9 @@
 ## Installing
 
-Don`t forget to install MySql2 or mariaDB and  ImageMagick
+Don`t forget to install MySql2 or mariaDB and  ImageMagick+libraries
 ```
 sudo apt-get update
-sudo apt-get install mysql-server mysql-client libmysqlclient-dev imagemagick
+sudo apt-get install mysql-server mysql-client libmysqlclient-dev imagemagick libmagickwand-dev
 ```
 Then go for
 ```

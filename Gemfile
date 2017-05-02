@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
 gem 'bcrypt-ruby', require: 'bcrypt'
+gem 'carrierwave', '~> 0.11.0'
+gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'mysql2', '~> 0.3.21'
-gem 'font-awesome-rails'
 gem 'rails', '3.2.22.5'
+gem 'remotipart', '~> 1.3', '>= 1.3.1'
 gem 'slim-rails', '~> 3.1', '>= 3.1.2'
 
 group :assets do
@@ -14,8 +16,8 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'social-share-button'
-  gem 'will_paginate', '~> 3.1', '>= 3.1.5'
   gem 'uglifier', '>= 1.0.3'
+  gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 end
 
 group :development, :test do
@@ -26,6 +28,6 @@ group :development, :test do
   gem 'bootstrap-will_paginate', '~> 1.0'
   gem 'pry'
   gem 'quiet_assets'
-  gem 'rubocop', '~> 0.48.0'
-  gem 'test-unit', '~> 3.0'
+  gem 'rubocop', '~> 0.48.1'
+  gem 'test-unit', '~> 3.2', '>= 3.2.3'
 end

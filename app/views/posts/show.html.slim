@@ -1,22 +1,19 @@
 .page-header
   = link_to posts_path, class: 'btn btn-default' do
     span.glyphicon.glyphicon-list-alt
-    |  Back 
+    |  Back
   = link_to edit_post_path(@post), class: 'btn btn-primary' do
     span.glyphicon.glyphicon-pencil
-    |  Edit 
-  h1
-    | Show post
+    |  Edit
+  h1 Show post
 dl.dl-horizontal
-  dt
-    | Title:
-  dd
-    = @post.title
-  dt
-    | Body:
-  dd
-    = @post.body
-  dt
-    | Published at:
-  dd
-    = @post.published_at
+  dt Title:
+  dd = @post.title
+  dt Image:
+  dd.image
+    - for image in @post.images
+      = image_tag image.url_url, class: 'image-medium image-responsive'
+  dt Body:
+  dd = raw @post.body
+  dt Published at:
+  dd = @post.published_at

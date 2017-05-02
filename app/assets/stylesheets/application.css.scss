@@ -15,8 +15,18 @@ body {
 
 #loader {
   display: none;
-  img{
+  img {
     width: 20%;
     height: auto;
   }
+}
+
+.image-medium {
+    width: 200px;
+    height: auto;
+}
+
+.image-small{
+  width: 50px;
+  height: auto;
 }
