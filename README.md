@@ -124,3 +124,10 @@ Implement sharing to 3 social networks (on your choice) using native dialogs.
 ##### Gems
 
 Social Share Button https://github.com/huacnlee/social-share-button
+
+
+Credentials for dropbox and yandex mail
+```
+email: railsHW@yandex.ru
+pass:  railsHW1
+```

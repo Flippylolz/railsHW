@@ -1,6 +1,7 @@
 about
 assets:clean
 assets:precompile
+ckeditor:nondigest
 db:create
 db:drop
 db:fixtures:load
@@ -14,6 +15,7 @@ db:setup
 db:structure:dump
 db:version
 doc:app
+dropbox:authorize
 log:clear
 middleware
 notes

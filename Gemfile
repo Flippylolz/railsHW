@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'carrierwave', '~> 0.11.0'
+gem 'carrierwave-dropbox'
+gem 'dotenv-rails'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'mysql2', '~> 0.3.21'

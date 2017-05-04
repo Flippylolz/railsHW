@@ -16,4 +16,6 @@ Post.destroy_all
       body: SecureRandom.hex,
       published_at: Time.now
   )
+  print '.'
 end
+puts 'done'
