@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
-  attr_accessible :body, :published_at, :title, :user_id, :images_attributes
-  has_many :images, as: :imageable, dependent: :destroy
-  accepts_nested_attributes_for :images
+  attr_accessible :body, :published_at, :title, :user_id, :image_attributes
+  has_one :image, as: :imageable, dependent: :destroy
+  accepts_nested_attributes_for :image
   belongs_to :user
 
   scope :published, (-> { where('published_at IS NOT NULL') })

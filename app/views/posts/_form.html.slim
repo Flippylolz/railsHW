@@ -30,7 +30,7 @@
         .form-group
           = f.label :image, class: 'col-sm-2 control-label'
           .col-sm-10
-            = f.fields_for :images do |ff|
+            = f.fields_for :image do |ff|
               = ff.file_field :url
         - if params[:action] == 'new'
           .form-group

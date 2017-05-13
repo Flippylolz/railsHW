@@ -11,8 +11,8 @@ dl.dl-horizontal
   dd = @post.title
   dt Image:
   dd.image
-    - for image in @post.images
-      = image_tag image.url_url, class: 'image-medium image-responsive'
+    - if @post.image.present?
+      = image_tag @post.image.url_url, class: 'image-medium image-responsive'
   dt Body:
   dd = raw @post.body
   dt Published at:

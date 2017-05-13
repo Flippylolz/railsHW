@@ -19,7 +19,7 @@
               li = link_to 'Destroy', post, method: :delete, data: {confirm: 'Are you sure?'}, remote: true
   .panel-body
     .col-xs-2
-      - for image in post.images
-        = link_to image_tag(image.url_url, class: 'image-small image-responsive'), image.url_url, target: '_blank'
+      - if post.image.present?
+        = link_to image_tag(post.image.url_url, class: 'image-small image-responsive'), post.image.url_url, target: '_blank'
     .col-xs-10
       = raw post.body

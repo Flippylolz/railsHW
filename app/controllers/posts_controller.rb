@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
   def new
     @post = current_user.posts.new
-    @post.images.build
+    @post.build_image
 
     respond_to do |format|
       format.html # new.html.slim
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post.images.build if @post.images.empty?
+    @post.build_image
   end
 
   def create
