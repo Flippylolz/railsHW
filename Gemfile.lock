@@ -104,10 +104,10 @@ GEM
     mime-types (1.25.1)
     mimemagic (0.3.2)
     multi_json (1.12.1)
-    mysql2 (0.3.21)
     orm_adapter (0.5.0)
     parser (2.4.0.0)
       ast (~> 2.2)
+    pg (0.20.0)
     polyglot (0.3.5)
     power_assert (0.4.1)
     powerpack (0.1.1)
@@ -224,7 +224,7 @@ DEPENDENCIES
   faker (~> 1.7, >= 1.7.3)
   font-awesome-rails
   jquery-rails
-  mysql2 (~> 0.3.21)
+  pg
   pry
   quiet_assets
   rails (= 3.2.22.5)
