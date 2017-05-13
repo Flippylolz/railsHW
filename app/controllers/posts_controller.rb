@@ -43,7 +43,9 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1/edit
-  def edit; end
+  def edit
+    @post.images.build if @post.images.empty?
+  end
 
   # POST /posts
   # POST /posts.json

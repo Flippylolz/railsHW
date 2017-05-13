@@ -28,8 +28,11 @@ group :development, :test do
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'bootstrap-generators', '~> 3.3.4'
   gem 'bootstrap-will_paginate', '~> 1.0'
+  gem 'factory_girl_rails'
+  gem 'faker', '~> 1.7', '>= 1.7.3'
   gem 'pry'
   gem 'quiet_assets'
+  gem 'rspec-rails', '~> 3.5'
   gem 'rubocop', '~> 0.48.1'
   gem 'test-unit', '~> 3.2', '>= 3.2.3'
 end

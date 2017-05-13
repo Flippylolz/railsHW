@@ -1,9 +1,1 @@
-let postForm = $('#post_form')
-
-if (postForm.empty()){
-    $('#posts').prepend('<%= j render 'form', is_remote: true %>');
-}
-else{
-    postForm.replace('<%= j render 'form', is_remote: true %>');
-}
-$('html, body').animate({ scrollTop: $('#post_form').offset().top }, 1000);
+$(".modal").html('<%= j render 'form', is_remote: true %>');

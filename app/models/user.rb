@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :images, as: :imageable
 
-  scope :adults, (-> { where('birthday >= ?', Date.today - 18.years) })
+  scope :adults, (-> { where('birthday <= ?', Date.today - 18.years) })
 
   validates_confirmation_of :password
   validates :username, :email, :password, presence: true
