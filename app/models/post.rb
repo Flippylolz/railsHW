@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
 
   scope :published, (-> { where('published_at IS NOT NULL') })
+  scope :inverse, (-> { order('id DESC') })
   validates :title, :body, presence: true
 
   self.per_page = 10
@@ -21,4 +22,3 @@ end
 #  updated_at   :datetime        not null
 #  user_id      :integer(4)
 #
-

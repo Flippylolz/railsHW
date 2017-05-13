@@ -14,4 +14,3 @@ end
 #  updated_at   :datetime        not null
 #  user_id      :integer(4)
 #
-

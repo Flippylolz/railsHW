@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :birthday, :email, :first_name, :last_name, :password, :password_confirmation, :username
+  attr_accessible :email, :password, :password_confirmation,
+                  :first_name, :last_name, :username, :birthday
 
   attr_accessor :password
 
@@ -9,9 +10,9 @@ class User < ActiveRecord::Base
   scope :adults, (-> { where('birthday <= ?', Date.today - 18.years) })
 
   validates_confirmation_of :password
-  validates :username, :email, :password, presence: true
-  validates :username, :email, uniqueness: true
-  validates :password, length: { minimum: 8 }
+  validates_presence_of :username, :email, :password
+  validates_uniqueness_of :username, :email
+  validates_length_of :password, minimum: 8
   validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 
   before_save :encrypt_password
@@ -22,20 +23,14 @@ class User < ActiveRecord::Base
 
   def self.authenticate(email, password)
     user = find_by_email(email)
-    if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
-      user
-    else
-      nil
-    end
+    user if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
   end
 
   private
 
-  def encrypt_password
-    if password.present?
-      self.password_salt = BCrypt::Engine.generate_salt
-      self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
-    end
+  def encrypt_password # validates :password, presence: true
+    self.password_salt = BCrypt::Engine.generate_salt
+    self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
   end
 end
 # == Schema Information
@@ -53,4 +48,3 @@ end
 #  password_hash :string(255)
 #  password_salt :string(255)
 #
-

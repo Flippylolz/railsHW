@@ -32,5 +32,4 @@ RSpec.describe User, type: :model do
   it 'password less than 8 sym' do
     expect(FactoryGirl.build(:user, password: '123456')).to_not be_valid
   end
-
 end

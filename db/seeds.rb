@@ -18,4 +18,4 @@ Post.destroy_all
   )
   print '.'
 end
-puts 'done'
+ap'done', color: { string: :greenish }
