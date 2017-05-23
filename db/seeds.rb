@@ -19,4 +19,14 @@ Post.destroy_all
   )
   print '.'
 end
+
+User.create(
+  first_name: 'admin',
+  last_name: 'admin',
+  username: 'Admin',
+  email: 'admin@example.com',
+  password: 'password',
+  birthday: '1990'
+)
+
 ap'done', color: { string: :greenish }

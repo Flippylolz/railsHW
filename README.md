@@ -1,9 +1,9 @@
 ## Installing
 
-Don`t forget to install MySql2 or mariaDB and  ImageMagick+libraries
+Don`t forget to install ImageMagick+libraries
 ```
 sudo apt-get update
-sudo apt-get install mysql-server mysql-client libmysqlclient-dev imagemagick libmagickwand-dev
+sudo apt-get install imagemagick libmagickwand-dev
 ```
 Then go for
 ```
@@ -131,3 +131,15 @@ Credentials for dropbox and yandex mail
 email: railsHW@yandex.ru
 pass:  railsHW1
 ```
+
+Task 12
+
+### Overview
+
+Add ability to submit image with post, make sure you do this with AJAX
+
+Task 13
+
+### Overview
+
+Migrate to rails 5
