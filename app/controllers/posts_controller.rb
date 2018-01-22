@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: %i[edit update destroy show]
 
   def index
-    @posts = Post.inverse.page(params[:page])
+    @posts = Post.includes(:user, :image).inverse.page(params[:page])
 
     respond_to do |format|
       format.js { cookies[:current_page] = cookies[:current_page].to_i + 1 unless @posts.empty? }

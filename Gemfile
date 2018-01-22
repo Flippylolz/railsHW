@@ -29,6 +29,7 @@ group :development, :test do
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'bootstrap-generators', '~> 3.3.4'
   gem 'bootstrap-will_paginate', '~> 1.0'
+  gem 'bullet'
   gem 'byebug', platform: :mri
   gem 'factory_girl_rails'
   gem 'faker', '~> 1.7', '>= 1.7.3'
