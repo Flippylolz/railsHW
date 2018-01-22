@@ -1,2 +1,8 @@
-$('#posts').prepend('<%= j render @post %>')
 $('.mymodalfade').modal('toggle')
+<% if @post.image.present? %>
+  location.reload();
+<% else %>
+  $('#posts').prepend('<%= j render @post %>')
+<%end%>
+// $('#posts').prepend('<%#= j render @post %>')
+// Monkey fix, cuz remotipart gem is not supported for rails 5
