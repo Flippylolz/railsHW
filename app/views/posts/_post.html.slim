@@ -6,7 +6,10 @@
         br
         = post.created_at.strftime('%B %d, %Y')
       .col-xs-4
-        h4.text-right.text-capitalize = best_in_place post, :title
+        - if post.user_id == current_user.id
+          h4.text-right.text-capitalize = best_in_place(post, :title)
+        - else
+          h4.text-right.text-capitalize = post.title
       .col-xs-4.text-right
         = social_share_button_tag(post.title)
       .col-xs-2.text-right
