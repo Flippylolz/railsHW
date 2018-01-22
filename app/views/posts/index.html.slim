@@ -1,10 +1,6 @@
 .page-header
   = link_to 'New Post', new_post_path, remote: true, 'data-toggle' => 'modal', 'data-target' => '.mymodalfade'
-  /= link_to new_post_path, class: 'btn btn-primary', id: 'new_post_link', remote: true do
-  /  span.glyphicon.glyphicon-plus
-    |  New Post
-  h1
-    | Listing posts
+  h1 Listing posts
 .panel-group.paginatiable#posts
   = render @posts
 #loader.text-center
