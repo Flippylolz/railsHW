@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'bcrypt-ruby', require: 'bcrypt'
+gem 'bcrypt', require: 'bcrypt'
 gem 'best_in_place'
 gem 'bootstrap-sass', '3.1.1.0'
 gem 'carrierwave', '~> 0.11.0'
