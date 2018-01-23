@@ -1,0 +1,15 @@
+.page-header
+  = link_to :back, class: 'btn btn-default' do
+    span.glyphicon.glyphicon-list-alt Back
+  = link_to edit_user_path(current_user), class: 'btn btn-primary' do
+    span.glyphicon.glyphicon-pencil Edit
+  h1 Show profile
+dl.dl-horizontal
+  dt Name:
+  dd = current_user.full_name
+  dt Birthday:
+  dd = current_user.birthday.strftime('%F %T')
+  dt Username:
+  dd = current_user.username
+  dt E-mail:
+  dd = current_user.email

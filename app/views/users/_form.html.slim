@@ -1,0 +1,16 @@
+= form_for @user do |f|
+  - if @user.errors.any?
+    .error_messages
+      .alert.alert-danger
+        ul
+          - @user.errors.full_messages.each do |message|
+            li = message
+  p = f.text_field :first_name, class: 'form-control', placeholder: 'First name'
+  p = f.text_field :last_name, class: 'form-control', placeholder: 'Last name'
+  p = f.text_field :birthday, class: 'form-control', placeholder: 'Birthday'
+  p = f.text_field :username, class: 'form-control', placeholder: 'Username', required: true
+  p = f.text_field :email, class: 'form-control', placeholder: 'E-mail', required: true
+  - if @user.new_record?
+    p = f.password_field :password, class: 'form-control', placeholder: 'Password'
+    p = f.password_field :password_confirmation, class: 'form-control', placeholder: 'Password confirmation'
+  = f.submit class: 'btn btn-lg btn-primary btn-block'

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :find_user, only: %i[edit update]
   def new
     @user = User.new
   end
@@ -13,7 +14,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def show; end
+
+  def edit; end
+
+  def update
+    if @user.update_attributes(user_params)
+      redirect_to profile_path, notice: 'Profile was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   private
+
+  def find_user
+    @user = User.find params[:id]
+  end
 
   def log_in_after_sign_up(user)
     User.authenticate(user.email, user.password)

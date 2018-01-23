@@ -2,19 +2,15 @@
   .modal-content
     .modal-header
       button.close[type="button" data-dismiss="modal" aria-label="Close"]
-        span[aria-hidden="true"]
-          | ×
-      h4#gridSystemModalLabel.modal-title
-        | Creating a new post
+        span[aria-hidden="true"] ×
+      h4#gridSystemModalLabel.modal-title Creating a new post
     .modal-body
       = form_for(@post, html: { class: 'form-horizontal', id: 'post_form', role: 'form', remote: is_remote ||= false }) do |f|
         - if @post.errors.any?
           .alert.alert-danger.alert-dismissable role="alert"
             button.close type="button" data-dismiss="alert"
-              span aria-hidden="true"
-                | &times;
-              span.sr-only
-                | Close
+              span aria-hidden="true" &times;
+              span.sr-only Close
             h4= "#{pluralize(@post.errors.count,'error')} prohibited this post from being saved:"
             ul
               - @post.errors.full_messages.each do |msg|

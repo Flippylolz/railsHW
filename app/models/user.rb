@@ -6,10 +6,9 @@ class User < ActiveRecord::Base
 
   scope :adults, (-> { where('birthday <= ?', 18.years.from_now) })
 
-  validates_confirmation_of :password
-  validates_presence_of :username, :email, :password
+  validates :password, confirmation: true, presence: true, length: {minimum: 8}, if: :new_record?
+  validates_presence_of :username, :email
   validates_uniqueness_of :username, :email
-  validates_length_of :password, minimum: 8
   validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 
   before_save :encrypt_password
