@@ -1,16 +1,24 @@
 ## Installing
 
-Don`t forget to install ImageMagick+libraries
+To install project follow next steps
+
+1. install docker and docker-compose
+2. run ```docker-compose build``` # build docker compose images
+3. run ```docker-compose run --rm web bundle install``` # install gems if they are missing
+4. create db and fill it with sample data
 ```
-sudo apt-get update
-sudo apt-get install imagemagick libmagickwand-dev
+docker-compose run --rm web bundle exec rake db:create
+docker-compose run --rm web bundle exec rake db:migrate
+docker-compose run --rm web bundle exec rake db:seed
 ```
-Then go for
-```
-bundle install
-rake db:create db:migrate db:seed
-rails s
-```
+5. To run project ```docker-compose up```
+
+*TIPs*
+
+1. ```docker-compose up -d``` run project in background
+2. To run rails console ```docker-compose run --rm web bundle exec rails console```
+3. Stop project: ```docker-compose down```
+4. List of containers: ```docker-compose ps```
 
 Task 5
 
