@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :find_user, only: %i[edit update]
   def new
     @user = User.new
+    @user.build_image
   end
 
   def create
@@ -16,7 +17,9 @@ class UsersController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+    @user.build_image
+  end
 
   def update
     if @user.update_attributes(user_params)
@@ -40,7 +43,8 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(
       :email, :password, :password_confirmation,
-      :first_name, :last_name, :username, :birthday
+      :first_name, :last_name, :username, :birthday,
+      image_attributes: %i[id url]
     )
   end
 end

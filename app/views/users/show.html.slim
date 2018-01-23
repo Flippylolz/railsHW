@@ -5,6 +5,9 @@
     span.glyphicon.glyphicon-pencil Edit
   h1 Show profile
 dl.dl-horizontal
+  - if current_user.image.present?
+    dt Avatar:
+    dd = image_tag(current_user.image.url_url, class: 'image-medium image-responsive')
   dt Name:
   dd = current_user.full_name
   dt Birthday:
