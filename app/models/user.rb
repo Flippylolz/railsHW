@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   attr_accessor :password
 
   has_many :posts
-  has_many :images, as: :imageable
+  has_one :image, as: :imageable, dependent: :destroy
 
   scope :adults, (-> { where('birthday <= ?', 18.years.from_now) })
 
@@ -34,13 +34,13 @@ end
 # Table name: users
 #
 #  id            :integer         not null, primary key
-#  first_name    :string(255)
-#  last_name     :string(255)
-#  username      :string(255)
-#  email         :string(255)
+#  first_name    :string
+#  last_name     :string
+#  username      :string
+#  email         :string
 #  birthday      :datetime
-#  created_at    :datetime        not null
-#  updated_at    :datetime        not null
-#  password_hash :string(255)
-#  password_salt :string(255)
+#  created_at    :datetime
+#  updated_at    :datetime
+#  password_hash :string
+#  password_salt :string
 #

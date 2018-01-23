@@ -14,10 +14,10 @@ end
 # Table name: posts
 #
 #  id           :integer         not null, primary key
-#  title        :string(255)
+#  title        :string
 #  body         :text
 #  published_at :datetime
-#  created_at   :datetime        not null
-#  updated_at   :datetime        not null
+#  created_at   :datetime
+#  updated_at   :datetime
 #  user_id      :integer
 #

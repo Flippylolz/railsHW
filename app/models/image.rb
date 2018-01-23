@@ -8,9 +8,9 @@ end
 # Table name: images
 #
 #  id             :integer         not null, primary key
-#  url            :string(255)
+#  url            :string
+#  imageable_type :string
 #  imageable_id   :integer
-#  imageable_type :string(255)
-#  created_at     :datetime        not null
-#  updated_at     :datetime        not null
+#  created_at     :datetime
+#  updated_at     :datetime
 #
